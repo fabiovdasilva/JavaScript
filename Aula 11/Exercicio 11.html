@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nacionalidade</title>
+    <style>
+      body {
+        font: normal 18pt Arial;
+        text-align: center;
+        background-image: linear-gradient(rgb(79, 205, 255), rgb(0, 151, 211));
+        background-repeat: no-repeat;
+        background-color: rgb(0, 151, 211);
+      }
+      section {
+        background-color: rgb(226, 231, 231);
+        text-align: center;
+        margin: auto;
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 750px;
+        /* offset-x | offset-y | blur-radius | color */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
+      }
+
+      input {
+        font-size: 12pt;
+        border-radius: 5px;
+      }
+
+      input#res:hover {
+        background-color: rgb(79, 205, 255);
+        border: solid transparent;
+      }
+
+      input#clean:hover {
+        background-color: rgb(79, 205, 255);
+        border: solid transparent;
+      }
+      section div {
+        font-size: 30pt;
+        margin: auto;
+      }
+
+      img#foto {
+        height: 300px;
+        width: 400px;
+      }
+      footer {
+        margin: auto;
+        padding-top: 20px;
+        font: italic 20px;
+      }
+
+      div#res {
+        text-align: center;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Nacionalidade</h1>
+    <section>
+      <p>
+        Onde você nasceu? <input type="text" id="nacio" />
+        <input type="button" value="resultado" id="res" onclick="verificar()" />
+
+        <input type="button" value="Limpar" id="clean" onclick="clean()" />
+      </p>
+      <div id="res"></div>
+    </section>
+
+    <script>
+      function clean() {
+        let res = document.querySelector("div#res");
+        document.querySelector("#nacio").value = "";
+        res.innerHTML = "";
+      }
+
+      function verificar() {
+        let n1 = document.querySelector("input#nacio");
+        let res = document.querySelector("div#res");
+        let n2 = n1.value;
+        let img = document.createElement("img");
+        img.setAttribute("id", "foto");
+
+        if (n2 == "Brasil") {
+          res.innerHTML = "<p>brasileiro</p>";
+          img.setAttribute("src", "./Assets/Brasil.png");
+        } else {
+          res.innerHTML = "<p>estrangeiro</p>";
+        }
+        res.appendChild(img);
+      }
+    </script>
+  </body>
+  <footer>&copy; Fábio Vinícius da Silva</footer>
+</html>

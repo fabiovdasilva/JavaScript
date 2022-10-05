@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div>
+      <p>Insira um número: <input type="number" name="txtn1" id="txtn1" /></p>
+      <p>
+        Insira outro número: <input type="number" name="txtn2" id="txtn2" />
+      </p>
+      <p><input type="button" value="Resultado" onclick="resultado()" />
+    <input type="radio" name="calc" id="somar" checked> Somar 
+    <input type="radio" name="calc" id="multiplicar"> Multiplicar</p>
+    </div>
+    <div id="res">Esperando resultado...</div>
+
+    <script>
+      function resultado() {
+        let n1 = Number(document.querySelector("#txtn1").value);
+        let n2 = Number(document.querySelector("#txtn2").value);
+        let res = document.querySelector("#res");
+        let calcR = document.getElementsByName('calc')
+
+        
+        if (calcR[0].checked){
+            
+            let resultado = n1 + n2;
+            res.innerHTML = `Resultado da sua soma é: ${resultado}`;
+            
+        } else {
+            
+            let resultado = n1 * n2
+            res.innerHTML = `Resultado da sua multiplicação é: ${resultado}`;
+        }
+
+
+      }
+    </script>
+  </body>
+</html>
